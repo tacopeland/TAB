@@ -41,12 +41,12 @@ public class PacketPlayOutEntityTeleport extends PacketPlayOut {
 			PacketPlayOutEntityTeleport = getNMSClass("Packet34EntityTeleport");
 		}
 		newPacketPlayOutEntityTeleport = PacketPlayOutEntityTeleport.getConstructor();
-		(ENTITYID = PacketPlayOutEntityTeleport.getDeclaredField("a")).setAccessible(true);
-		(X = PacketPlayOutEntityTeleport.getDeclaredField("b")).setAccessible(true);
-		(Y = PacketPlayOutEntityTeleport.getDeclaredField("c")).setAccessible(true);
-		(Z = PacketPlayOutEntityTeleport.getDeclaredField("d")).setAccessible(true);
-		(YAW = PacketPlayOutEntityTeleport.getDeclaredField("e")).setAccessible(true);
-		(PITCH = PacketPlayOutEntityTeleport.getDeclaredField("f")).setAccessible(true);
+		(ENTITYID = PacketPlayOutEntityTeleport.getDeclaredField("field_149458_a")).setAccessible(true);
+		(X = PacketPlayOutEntityTeleport.getDeclaredField("field_149456_b")).setAccessible(true);
+		(Y = PacketPlayOutEntityTeleport.getDeclaredField("field_149457_c")).setAccessible(true);
+		(Z = PacketPlayOutEntityTeleport.getDeclaredField("field_149454_d")).setAccessible(true);
+		(YAW = PacketPlayOutEntityTeleport.getDeclaredField("field_149455_e")).setAccessible(true);
+		(PITCH = PacketPlayOutEntityTeleport.getDeclaredField("field_149453_f")).setAccessible(true);
 	}
 	
 	/**

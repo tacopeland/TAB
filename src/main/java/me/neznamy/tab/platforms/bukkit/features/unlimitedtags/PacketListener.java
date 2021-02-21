@@ -69,23 +69,17 @@ public class PacketListener implements RawPacketFeature, PlayerInfoPacketListene
 		PacketPlayOutEntityDestroy = PacketPlayOut.getNMSClass("PacketPlayOutEntityDestroy");
 		PacketPlayOutNamedEntitySpawn = PacketPlayOut.getNMSClass("PacketPlayOutNamedEntitySpawn");
 		PacketPlayOutEntityTeleport = PacketPlayOut.getNMSClass("PacketPlayOutEntityTeleport");
-		(PacketPlayOutEntityTeleport_ENTITYID = PacketPlayOutEntityTeleport.getDeclaredField("a")).setAccessible(true);
+		(PacketPlayOutEntityTeleport_ENTITYID = PacketPlayOutEntityTeleport.getDeclaredField("field_149458_a")).setAccessible(true);
 
-		(PacketPlayInUseEntity_ENTITY = PacketPlayInUseEntity.getDeclaredField("a")).setAccessible(true);
-		(PacketPlayOutEntity_ENTITYID = PacketPlayOutEntity.getDeclaredField("a")).setAccessible(true);
-		(PacketPlayOutEntityDestroy_ENTITIES = PacketPlayOutEntityDestroy.getDeclaredField("a")).setAccessible(true);
-		(PacketPlayOutNamedEntitySpawn_ENTITYID = PacketPlayOutNamedEntitySpawn.getDeclaredField("a")).setAccessible(true);
+		(PacketPlayInUseEntity_ENTITY = PacketPlayInUseEntity.getDeclaredField("field_149567_a")).setAccessible(true);
+		(PacketPlayOutEntity_ENTITYID = PacketPlayOutEntity.getDeclaredField("field_149074_a")).setAccessible(true);
+		(PacketPlayOutEntityDestroy_ENTITIES = PacketPlayOutEntityDestroy.getDeclaredField("field_149100_a")).setAccessible(true);
+		(PacketPlayOutNamedEntitySpawn_ENTITYID = PacketPlayOutNamedEntitySpawn.getDeclaredField("field_148957_a")).setAccessible(true);
 
-		if (ProtocolVersion.SERVER_VERSION.getMinorVersion() >= 9) {
-			PacketPlayOutMount = PacketPlayOut.getNMSClass("PacketPlayOutMount");
-			(PacketPlayOutMount_VEHICLE = PacketPlayOutMount.getDeclaredField("a")).setAccessible(true);
-			(PacketPlayOutMount_PASSENGERS = PacketPlayOutMount.getDeclaredField("b")).setAccessible(true);
-		} else {
-			PacketPlayOutAttachEntity = PacketPlayOut.getNMSClass("PacketPlayOutAttachEntity");
-			(PacketPlayOutAttachEntity_A = PacketPlayOutAttachEntity.getDeclaredField("a")).setAccessible(true);
-			(PacketPlayOutAttachEntity_PASSENGER = PacketPlayOutAttachEntity.getDeclaredField("b")).setAccessible(true);
-			(PacketPlayOutAttachEntity_VEHICLE = PacketPlayOutAttachEntity.getDeclaredField("c")).setAccessible(true);
-		}
+		PacketPlayOutAttachEntity = PacketPlayOut.getNMSClass("PacketPlayOutAttachEntity");
+		(PacketPlayOutAttachEntity_A = PacketPlayOutAttachEntity.getDeclaredField("field_149408_a")).setAccessible(true);
+		(PacketPlayOutAttachEntity_PASSENGER = PacketPlayOutAttachEntity.getDeclaredField("field_149406_b")).setAccessible(true);
+		(PacketPlayOutAttachEntity_VEHICLE = PacketPlayOutAttachEntity.getDeclaredField("field_149407_c")).setAccessible(true);
 	}
 
 	public PacketListener(NameTagX nameTagX) {

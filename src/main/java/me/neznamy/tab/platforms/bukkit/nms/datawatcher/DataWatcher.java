@@ -47,7 +47,7 @@ public class DataWatcher {
 			REGISTER = DataWatcher.getMethod("register", DataWatcherObject, Object.class);
 		} else {
 			//1.8-
-			REGISTER = DataWatcher.getMethod("a", int.class, Object.class);
+			REGISTER = DataWatcher.getMethod("func_75682_a", int.class, Object.class);
 		}
 	}
 
@@ -116,7 +116,7 @@ public class DataWatcher {
 	@SuppressWarnings("unchecked")
 	public static DataWatcher fromNMS(Object nmsWatcher) throws Exception{
 		DataWatcher watcher = new DataWatcher();
-		List<Object> items = (List<Object>) nmsWatcher.getClass().getMethod("c").invoke(nmsWatcher);
+		List<Object> items = (List<Object>) nmsWatcher.getClass().getMethod("func_75685_c").invoke(nmsWatcher);
 		if (items != null) {
 			for (Object watchableObject : items) {
 				DataWatcherItem w = DataWatcherItem.fromNMS(watchableObject);

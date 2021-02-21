@@ -23,19 +23,7 @@ public class DataWatcherItem {
 	 */
 	public static void initializeClass() throws Exception {
 		Class<?> DataWatcherItem;
-		if (ProtocolVersion.SERVER_VERSION.getMinorVersion() >= 9) {
-			//1.9+
-			DataWatcherItem = PacketPlayOut.getNMSClass("DataWatcher$Item");
-		} else {
-			//1.8-
-			try {
-				//v1_8_R2, v1_8_R3
-				DataWatcherItem = PacketPlayOut.getNMSClass("DataWatcher$WatchableObject");
-			} catch (ClassNotFoundException e) {
-				//v1_8_R1-
-				DataWatcherItem = PacketPlayOut.getNMSClass("WatchableObject");
-			}
-		}
+		DataWatcherItem = PacketPlayOut.getNMSClass("WatchableObject");
 		newDataWatcherItem = DataWatcherItem.getConstructors()[0];
 	}
 	
@@ -69,16 +57,10 @@ public class DataWatcherItem {
 	 * @throws Exception - if something fails
 	 */
 	public static DataWatcherItem fromNMS(Object nmsItem) throws Exception {
-		if (ProtocolVersion.SERVER_VERSION.getMinorVersion() >= 9) {
-			DataWatcherObject object = DataWatcherObject.fromNMS(getValue(nmsItem, "a"));
-			Object value = getValue(nmsItem, "b");
-			return new DataWatcherItem(object, value);
-		} else {
-			Object classType = getValue(nmsItem, "a");
-			int position = (int) getValue(nmsItem, "b");
-			Object value = getValue(nmsItem, "c");
-			return new DataWatcherItem(new DataWatcherObject(position, classType), value);
-		}
+		Object classType = getValue(nmsItem, "field_75678_a");
+		int position = (int) getValue(nmsItem, "field_75676_b");
+		Object value = getValue(nmsItem, "field_75677_c");
+		return new DataWatcherItem(new DataWatcherObject(position, classType), value);
 	}
 	
 	/**

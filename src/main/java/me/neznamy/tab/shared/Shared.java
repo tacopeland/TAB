@@ -60,7 +60,7 @@ public class Shared {
 	 * @return true if this is premium version, false if not
 	 */
 	public static boolean isPremium() {
-		return false;
+		return true;
 	}
 	
 	/**

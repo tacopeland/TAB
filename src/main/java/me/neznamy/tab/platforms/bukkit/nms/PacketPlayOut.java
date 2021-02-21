@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.bukkit.Bukkit;
 
+import me.neznamy.tab.platforms.bukkit.Main;
 import me.neznamy.tab.shared.ProtocolVersion;
 
 /**
@@ -44,6 +45,6 @@ public abstract class PacketPlayOut {
 	 * @throws ClassNotFoundException if class was not found
 	 */
 	public static Class<?> getNMSClass(String name) throws ClassNotFoundException {
-		return Class.forName("net.minecraft.server." + Bukkit.getServer().getClass().getPackage().getName().split("\\.")[3] + "." + name);
+		return Main.class.getClassLoader().loadClass("net.minecraft.server." + Bukkit.getServer().getClass().getPackage().getName().split("\\.")[3] + "." + name);
 	}
 }

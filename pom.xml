@@ -373,6 +373,11 @@
 			<systemPath>${project.basedir}${file.separator}jars${file.separator}velocity-1.1.0.jar</systemPath>
 		</dependency>
 
+		<dependency>
+			<groupId>io.github</groupId>
+			<artifactId>crucible</artifactId>
+			<version>4.1</version>
+		</dependency>
 	</dependencies>
 
 </project>

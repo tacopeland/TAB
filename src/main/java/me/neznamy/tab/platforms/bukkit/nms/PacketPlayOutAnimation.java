@@ -35,8 +35,8 @@ public class PacketPlayOutAnimation extends PacketPlayOut {
 			PacketPlayOutAnimation = getNMSClass("Packet18ArmAnimation");
 		}
 		newPacketPlayOutAnimation = PacketPlayOutAnimation.getConstructor();
-		(PacketPlayOutAnimation_ENTITYID = PacketPlayOutAnimation.getDeclaredField("a")).setAccessible(true);
-		(PacketPlayOutAnimation_ANIMATIONTYPE = PacketPlayOutAnimation.getDeclaredField("b")).setAccessible(true);
+		(PacketPlayOutAnimation_ENTITYID = PacketPlayOutAnimation.getDeclaredField("field_148981_a")).setAccessible(true);
+		(PacketPlayOutAnimation_ANIMATIONTYPE = PacketPlayOutAnimation.getDeclaredField("field_148980_b")).setAccessible(true);
 	}
 	
 	/**

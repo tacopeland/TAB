@@ -40,7 +40,7 @@ public class PetFix implements RawPacketFeature, QuitEventListener {
 	 */
 	public static void initializeClass() throws Exception {
 		PacketPlayOutEntityMetadata = PacketPlayOut.getNMSClass("PacketPlayOutEntityMetadata");
-		(PacketPlayOutEntityMetadata_LIST = PacketPlayOutEntityMetadata.getDeclaredField("b")).setAccessible(true);
+		(PacketPlayOutEntityMetadata_LIST = PacketPlayOutEntityMetadata.getDeclaredField("field_149378_b")).setAccessible(true);
 		PacketPlayInUseEntity = PacketPlayOut.getNMSClass("PacketPlayInUseEntity");
 		(PacketPlayInUseEntity_ACTION = PacketPlayInUseEntity.getDeclaredField("action")).setAccessible(true);
 		PET_OWNER_POSITION = getPetOwnerPosition();

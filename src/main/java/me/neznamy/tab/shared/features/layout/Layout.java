@@ -100,7 +100,9 @@ public class Layout implements Loadable, JoinEventListener {
 			result.put(i, new IChatBaseComponent(""));
 		}
 
+		System.out.println("Before FixedSlot in doTick()");
 		for (FixedSlot fixed : fixedSlots.values()) {
+			System.out.println(fixed.getSlot() + ", " + fixed.getText(viewer));
 			result.put(fixed.getSlot(), IChatBaseComponent.optimizedComponent(fixed.getText(viewer)));
 		}
 

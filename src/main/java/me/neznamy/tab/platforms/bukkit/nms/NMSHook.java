@@ -109,11 +109,7 @@ public class NMSHook {
 	public static String checkCompatibility(String serverPackage){
 		try {
 			int minor = Integer.parseInt(serverPackage.split("_")[1]);
-			if (minor >= 7) {
-				IChatBaseComponent = PacketPlayOut.getNMSClass("IChatBaseComponent");
-			} else if (minor == 6) {
-				IChatBaseComponent = PacketPlayOut.getNMSClass("ChatMessage");
-			}
+			IChatBaseComponent = PacketPlayOut.getNMSClass("IChatBaseComponent");
 			BukkitPacketBuilder.initializeClass();
 			DataWatcher.initializeClass();
 			DataWatcherItem.initializeClass();
@@ -123,33 +119,17 @@ public class NMSHook {
 			PacketPlayOutEntityMetadata.initializeClass();
 			PacketPlayOutEntityTeleport.initializeClass();
 			PacketPlayOutSpawnEntityLiving.initializeClass();
-			PING = PacketPlayOut.getNMSClass("EntityPlayer").getDeclaredField("ping");
-			PLAYER_CONNECTION = PacketPlayOut.getNMSClass("EntityPlayer").getDeclaredField("playerConnection");
-			NETWORK_MANAGER = PLAYER_CONNECTION.getType().getField("networkManager");
+			PING = PacketPlayOut.getNMSClass("EntityPlayer").getDeclaredField("field_71138_i");
+			PLAYER_CONNECTION = PacketPlayOut.getNMSClass("EntityPlayer").getDeclaredField("field_71135_a");
+			NETWORK_MANAGER = PLAYER_CONNECTION.getType().getField("field_147371_a");
 			getHandle = Class.forName("org.bukkit.craftbukkit." + serverPackage + ".entity.CraftPlayer").getMethod("getHandle");
-			sendPacket = PacketPlayOut.getNMSClass("PlayerConnection").getMethod("sendPacket", PacketPlayOut.getNMSClass("Packet"));
+			sendPacket = PacketPlayOut.getNMSClass("PlayerConnection").getMethod("func_147359_a", PacketPlayOut.getNMSClass("Packet"));
 			
 			if (minor >= 7) {
 				Class<?> ChatSerializer;
-				try {
-					//v1_8_R2+
-					ChatSerializer = PacketPlayOut.getNMSClass("IChatBaseComponent$ChatSerializer");
-				} catch (ClassNotFoundException e) {
-					//v1_8_R1-
-					ChatSerializer = PacketPlayOut.getNMSClass("ChatSerializer");
-				}
-				SERIALIZE = ChatSerializer.getMethod("a", IChatBaseComponent);
-				DESERIALIZE = ChatSerializer.getMethod("a", String.class);
-			} else if (minor == 6) {
-				DESERIALIZE = IChatBaseComponent.getMethod("d", String.class);
-			}
-			if (minor >= 8) {
-				PacketListener.initializeClass();
-				CHANNEL = PacketPlayOut.getFields(PacketPlayOut.getNMSClass("NetworkManager"), Channel.class).get(0);
-				getProfile = PacketPlayOut.getNMSClass("EntityHuman").getMethod("getProfile");
-			}
-			if (minor >= 9) {
-				PetFix.initializeClass();
+				ChatSerializer = PacketPlayOut.getNMSClass("ChatSerializer");
+				SERIALIZE = ChatSerializer.getMethod("func_150696_a", IChatBaseComponent);
+				DESERIALIZE = ChatSerializer.getMethod("func_150699_a", String.class);
 			}
 			if (SUPPORTED_VERSIONS.contains(serverPackage)) {
 				return null;

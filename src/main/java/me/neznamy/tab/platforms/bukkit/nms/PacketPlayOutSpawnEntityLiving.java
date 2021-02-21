@@ -59,23 +59,13 @@ public class PacketPlayOutSpawnEntityLiving extends PacketPlayOut {
 			PacketPlayOutSpawnEntityLiving = getNMSClass("Packet24MobSpawn");
 		}
 		newPacketPlayOutSpawnEntityLiving = PacketPlayOutSpawnEntityLiving.getConstructor();
-		(ENTITYID = PacketPlayOutSpawnEntityLiving.getDeclaredField("a")).setAccessible(true);
-		if (ProtocolVersion.SERVER_VERSION.getMinorVersion() >= 9) {
-			(UUID = PacketPlayOutSpawnEntityLiving.getDeclaredField("b")).setAccessible(true);
-			(ENTITYTYPE = PacketPlayOutSpawnEntityLiving.getDeclaredField("c")).setAccessible(true);
-			(X = PacketPlayOutSpawnEntityLiving.getDeclaredField("d")).setAccessible(true);
-			(Y = PacketPlayOutSpawnEntityLiving.getDeclaredField("e")).setAccessible(true);
-			(Z = PacketPlayOutSpawnEntityLiving.getDeclaredField("f")).setAccessible(true);
-			(YAW = PacketPlayOutSpawnEntityLiving.getDeclaredField("j")).setAccessible(true);
-			(PITCH = PacketPlayOutSpawnEntityLiving.getDeclaredField("k")).setAccessible(true);
-		} else {
-			(ENTITYTYPE = PacketPlayOutSpawnEntityLiving.getDeclaredField("b")).setAccessible(true);
-			(X = PacketPlayOutSpawnEntityLiving.getDeclaredField("c")).setAccessible(true);
-			(Y = PacketPlayOutSpawnEntityLiving.getDeclaredField("d")).setAccessible(true);
-			(Z = PacketPlayOutSpawnEntityLiving.getDeclaredField("e")).setAccessible(true);
-			(YAW = PacketPlayOutSpawnEntityLiving.getDeclaredField("i")).setAccessible(true);
-			(PITCH = PacketPlayOutSpawnEntityLiving.getDeclaredField("j")).setAccessible(true);
-		}
+		(ENTITYID = PacketPlayOutSpawnEntityLiving.getDeclaredField("field_149042_a")).setAccessible(true);
+		(ENTITYTYPE = PacketPlayOutSpawnEntityLiving.getDeclaredField("field_149040_b")).setAccessible(true);
+		(X = PacketPlayOutSpawnEntityLiving.getDeclaredField("field_149041_c")).setAccessible(true);
+		(Y = PacketPlayOutSpawnEntityLiving.getDeclaredField("field_149038_d")).setAccessible(true);
+		(Z = PacketPlayOutSpawnEntityLiving.getDeclaredField("field_149039_e")).setAccessible(true);
+		(YAW = PacketPlayOutSpawnEntityLiving.getDeclaredField("field_149048_i")).setAccessible(true);
+		(PITCH = PacketPlayOutSpawnEntityLiving.getDeclaredField("field_149045_j")).setAccessible(true);
 		if (ProtocolVersion.SERVER_VERSION.getMinorVersion() <= 14) {
 			(DATAWATCHER = getFields(PacketPlayOutSpawnEntityLiving, DataWatcher.DataWatcher).get(0)).setAccessible(true);
 		}

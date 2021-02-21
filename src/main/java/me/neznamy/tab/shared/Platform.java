@@ -247,10 +247,11 @@ public interface Platform {
 		if (Configs.premiumconfig != null && Configs.premiumconfig.getBoolean("scoreboard.enabled", false)) Shared.featureManager.registerFeature("scoreboard", new ScoreboardManager());
 		if (Configs.getSecretOption("remove-ghost-players", false)) Shared.featureManager.registerFeature("ghostplayerfix", new GhostPlayerFix());
 		if (Configs.config.getString("yellow-number-in-tablist", "%ping%").length() > 0) Shared.featureManager.registerFeature("tabobjective", new TabObjective());
-		if (ProtocolVersion.SERVER_VERSION.getMinorVersion() >= 8 && Configs.config.getBoolean("change-tablist-prefix-suffix", true)) {
-			Playerlist playerlist = new Playerlist();
-			Shared.featureManager.registerFeature("playerlist", playerlist);
-			if (Configs.premiumconfig != null && Configs.premiumconfig.getBoolean("align-tabsuffix-on-the-right", false)) Shared.featureManager.registerFeature("alignedsuffix", new AlignedSuffix(playerlist));
+		//MAY BREAK
+		Playerlist playerlist = new Playerlist();
+		Shared.featureManager.registerFeature("playerlist", playerlist);
+		if (Configs.config.getBoolean("change-tablist-prefix-suffix", true)) {
+			Shared.featureManager.registerFeature("alignedsuffix", new AlignedSuffix(playerlist));
 		}
 		Shared.featureManager.registerFeature("group", new GroupRefresher());
 		Shared.featureManager.registerFeature("info", new PluginInfo());

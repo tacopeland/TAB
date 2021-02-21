@@ -50,7 +50,7 @@ public class Playerlist implements JoinEventListener, Loadable, WorldChangeListe
 		}
 		Object packet = new PacketPlayOutPlayerInfo(EnumPlayerInfoAction.UPDATE_DISPLAY_NAME, updatedPlayers).create(ProtocolVersion.SERVER_VERSION);
 		for (TabPlayer all : Shared.getPlayers()) {
-			if (all.getVersion().getMinorVersion() >= 8) all.sendPacket(packet);
+			all.sendPacket(packet);
 		}
 	}
 	
@@ -121,7 +121,7 @@ public class Playerlist implements JoinEventListener, Loadable, WorldChangeListe
 		if (refresh) {
 			Object packet = new PacketPlayOutPlayerInfo(EnumPlayerInfoAction.UPDATE_DISPLAY_NAME, new PlayerInfoData(refreshed.getTablistUUID())).create(ProtocolVersion.SERVER_VERSION);
 			for (TabPlayer all : Shared.getPlayers()) {
-				if (all.getVersion().getMinorVersion() >= 8) all.sendPacket(packet);
+				all.sendPacket(packet);
 			}
 		}
 	}
@@ -139,7 +139,6 @@ public class Playerlist implements JoinEventListener, Loadable, WorldChangeListe
 	@Override
 	public void onJoin(TabPlayer connectedPlayer) {
 		refresh(connectedPlayer, true);
-		if (connectedPlayer.getVersion().getMinorVersion() < 8) return;
 		List<PlayerInfoData> list = new ArrayList<PlayerInfoData>();
 		for (TabPlayer all : Shared.getPlayers()) {
 			list.add(new PlayerInfoData(all.getTablistUUID()));
